@@ -10,7 +10,7 @@ app.use(bodyParser.json())
 
 const db = require('./app/config/db.config.js')
 
-const Quotes = db.quotes
+const Quote = db.quotes
 
 // force: true will drop the table if it already exists
 db.sequelize.sync({force: true}).then(() => {
@@ -18,7 +18,7 @@ db.sequelize.sync({force: true}).then(() => {
   initial()
 })
 
-require('./app/route/quotes.route.js')(app)
+require('./app/route/quote.route.js')(app)
 
 // Create a Server
 var server = app.listen(process.env.PORT || 5000, function () {
@@ -29,17 +29,17 @@ var server = app.listen(process.env.PORT || 5000, function () {
 })
 
 function initial() {
-  Quotes.create({
+  Quote.create({
     author: 'JEintsten',
     content: 'New Quote',
   })
 
-  Quotes.create({
+  Quote.create({
     author: 'JEintsten3',
     content: 'New Quote2',
   })
 
-  Quotes.create({
+  Quote.create({
     author: 'JEintsten2',
     content: 'New Quote3',
   })

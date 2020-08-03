@@ -1,35 +1,34 @@
 const db = require('../config/db.config.js')
-const Quotes = db.quotes
+const Quote = db.quotes
 
 // FETCH all quotes
 exports.findAll = (req, res) => {
-  Customer.findAll().then((quotes) => {
+  Quote.findAll().then((quotes) => {
     // Send all quotes to Client
     res.send(quotes)
   })
 }
 
 // POST NEW DATA
-exports.addQuotes = (req, res) => {
-  Quotes.create({
-    firstname: req.body.firstname,
-    lastname: req.body.lastname,
-    age: req.body.age,
+exports.addQuote = (req, res) => {
+  Quote.create({
+    author: req.body.author,
+    content: req.body.content,
   })
 
-  Quotes.findAll().then((users) => res.json(users))
+  Quote.findAll().then((users) => res.json(users))
 }
 
 // FINDING SPECIFIC ID
-exports.findOneQuotes = (req, res) => {
+exports.findOneQuote = (req, res) => {
   const apiId = req.params.id
-  Quotes.findByPk(apiId).then((resp) => res.send(resp))
+  Quote.findByPk(apiId).then((resp) => res.send(resp))
 }
 
 //DELETING
-exports.deleteQuotes = (req, res) => {
+exports.deleteQuote = (req, res) => {
   const apiIndex = req.params.id
-  Quotes.destroy({
+  Quote.destroy({
     where: {
       id: apiIndex,
     },

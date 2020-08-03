@@ -1,5 +1,5 @@
 module.exports = (sequelize, Sequelize) => {
-  const Quotes = sequelize.define('quotes', {
+  const Quote = sequelize.define('quote', {
     author: {
       type: Sequelize.STRING,
     },
@@ -8,5 +8,5 @@ module.exports = (sequelize, Sequelize) => {
     },
   })
 
-  return Quotes
+  return Quote
 }
