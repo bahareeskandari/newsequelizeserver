@@ -17,7 +17,7 @@ exports.findAllAgain = (req, res) => {
 }
 
 exports.addCustomer = (req, res) => {
-  Customer.create({firstname: 'bahare', lastname: 'Eskandari', age: 28})
+  Customer.create({firstname: req.body.firstname, lastname: req.body.lastname, age: req.body.age})
 }
 
 /*
