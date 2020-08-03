@@ -3,6 +3,17 @@ module.exports = function (app) {
 
   // Retrieve all Customer
   app.get('/api/customers', customers.findAll)
-  app.get('/api/customersagain', customers.findAllAgain)
   app.post('/api/add', customers.addCustomer)
+  app.get('/api/:id', customers.findOneCustomer)
 }
+
+/*
+
+router.get('/:id', function(req, res, next) {
+    const apiId = req.params.id;
+    db.api.findByPk(apiId).then(api => res.json({
+        error: false,
+        data: api,
+    }));
+});
+*/

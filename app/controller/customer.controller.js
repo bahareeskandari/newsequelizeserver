@@ -8,18 +8,24 @@ exports.findAll = (req, res) => {
     res.send(customers)
   })
 }
-
-exports.findAllAgain = (req, res) => {
-  Customer.findAll().then((customers) => {
-    // Send all customers to Client
-    res.send(customers)
-  })
-}
-
 exports.addCustomer = (req, res) => {
   Customer.create({firstname: req.body.firstname, lastname: req.body.lastname, age: req.body.age})
 }
+exports.findOneCustomer = (req, res) => {
+  const apiId = req.params.id
+  Customer.findByPk(apiId).then((resp) => res.send(resp))
+}
 
+/*
+
+router.get('/:id', function(req, res, next) {
+    const apiId = req.params.id;
+    db.api.findByPk(apiId).then(api => res.json({
+        error: false,
+        data: api,
+    }));
+});
+*/
 /*
 app.get('/', (req, res) => {
   res.send({hello: 'world'})
