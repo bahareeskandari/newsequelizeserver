@@ -39,4 +39,8 @@ function initial() {
     content:
       'Two things are infinite: the universe and human stupidity; and Im not sure about the universe',
   })
+  Quote.create({
+    author: 'Einstein',
+    content: 'If you cant explain it to a six year old, you dont understand it yourself',
+  })
 }
