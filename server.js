@@ -30,17 +30,13 @@ var server = app.listen(process.env.PORT || 5000, function () {
 
 function initial() {
   Quote.create({
-    author: 'JEintsten',
-    content: 'New Quote',
+    author: 'Bahare Eskandari',
+    content: 'Tänk fel om du vill men tänk själv',
   })
 
   Quote.create({
-    author: 'JEintsten3',
-    content: 'New Quote2',
-  })
-
-  Quote.create({
-    author: 'JEintsten2',
-    content: 'New Quote3',
+    author: 'Einstein',
+    content:
+      'Two things are infinite: the universe and human stupidity; and Im not sure about the universe',
   })
 }
