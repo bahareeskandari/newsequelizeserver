@@ -4,5 +4,5 @@ module.exports = function (app) {
   // Retrieve all Customer
   app.get('/api/customers', customers.findAll)
   app.get('/api/customersagain', customers.findAllAgain)
-  app.post('api/add', customers.addCustomer)
+  app.post('/api/add', customers.addCustomer)
 }

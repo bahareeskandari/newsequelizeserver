@@ -17,9 +17,6 @@ exports.findAllAgain = (req, res) => {
 }
 
 exports.addCustomer = (req, res) => {
-  console.log('json', req.body.json())
-  console.log('not json', req.body.firstname, req.body.lastname, req.body.age)
-  console.log('json', req.body.firstname.json(), req.body.lastname.json(), req.body.age.json())
   Customer.create({firstname: 'bahare', lastname: 'Eskandari', age: 28})
 }
 
