@@ -8,14 +8,25 @@ exports.findAll = (req, res) => {
     res.send(customers)
   })
 }
+
+// POST NEW DATA
 exports.addCustomer = (req, res) => {
-  Customer.create({firstname: req.body.firstname, lastname: req.body.lastname, age: req.body.age})
-  res.send(Customer.findAll())
+  Customer.create({
+    firstname: req.body.firstname,
+    lastname: req.body.lastname,
+    age: req.body.age,
+  })
+
+  Customer.findAll().then((users) => res.json(users))
 }
+
+// FINDING SPECIFIC ID
 exports.findOneCustomer = (req, res) => {
   const apiId = req.params.id
   Customer.findByPk(apiId).then((resp) => res.send(resp))
 }
+
+//DELETING
 exports.deleteCustomer = (req, res) => {
   const apiIndex = req.params.id
   Customer.destroy({
