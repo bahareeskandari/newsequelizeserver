@@ -1,6 +1,7 @@
-module.exports = function(app) { 
-    const customers = require('../controller/customer.controller.js');
+module.exports = function (app) {
+  const customers = require('../controller/customer.controller.js')
 
-    // Retrieve all Customer
-    app.get('/api/customers', customers.findAll);
+  // Retrieve all Customer
+  app.get('/api/customers', customers.findAll)
+  app.get('/api/customersagain', customers.findAllAgain)
 }
