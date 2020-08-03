@@ -17,8 +17,8 @@ exports.findAllAgain = (req, res) => {
 }
 
 exports.addCustomer = (req, res) => {
+  console.log(req.body)
   Customer.create({firstname: req.body.firstname, lastname: req.body.lastname, age: req.body.age})
-  res.send(customers)
 }
 
 /*
