@@ -10,13 +10,30 @@ exports.findAll = (req, res) => {
 }
 exports.addCustomer = (req, res) => {
   Customer.create({firstname: req.body.firstname, lastname: req.body.lastname, age: req.body.age})
+  res.send(Customer.findAll())
 }
 exports.findOneCustomer = (req, res) => {
   const apiId = req.params.id
   Customer.findByPk(apiId).then((resp) => res.send(resp))
 }
+exports.deleteCustomer = (req, res) => {
+  const apiIndex = req.params.id
+  Customer.destroy({
+    where: {
+      id: apiIndex,
+    },
+    force: true,
+  })
+}
 
 /*
+
+.destroy({
+  where: {
+    id: 1
+  },
+  force: true
+}
 
 router.get('/:id', function(req, res, next) {
     const apiId = req.params.id;

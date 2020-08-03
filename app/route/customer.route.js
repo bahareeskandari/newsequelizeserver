@@ -5,6 +5,7 @@ module.exports = function (app) {
   app.get('/api/customers', customers.findAll)
   app.post('/api/add', customers.addCustomer)
   app.get('/api/:id', customers.findOneCustomer)
+  app.delete('/api/:id', customers.deleteCustomer)
 }
 
 /*
